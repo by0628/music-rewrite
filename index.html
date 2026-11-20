@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>雾中来信 · by0628</title>
+<meta name="description" content="一些在深夜里写下的歌。不赶时间，慢慢听。">
+<meta name="theme-color" content="#e9edeb">
+<script>/* 主题抢先定版，避免刷新闪烁：auto 跟随系统 */
+(function(){try{var m=localStorage.getItem('unsentTheme')||'auto';var d=(m==='dark')||(m==='auto'&&window.matchMedia('(prefers-color-scheme: dark)').matches);document.documentElement.setAttribute('data-theme',d?'dark':'light');document.documentElement.setAttribute('data-tmode',m);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();
+(function(){try{var F={wenkai:'"LXGW WenKai","Noto Serif SC","Songti SC",serif',serif:'"Noto Serif SC","Songti SC","STSong","SimSun",serif',xiaowei:'"ZCOOL XiaoWei","LXGW WenKai","Noto Serif SC","Songti SC",serif',brush:'"Ma Shan Zheng","LXGW WenKai","Noto Serif SC","Songti SC",serif',system:'-apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif'};var f=localStorage.getItem('unsentFont')||'serif';if(F[f])document.documentElement.style.setProperty('--font',F[f]);var S={s:'.88',m:'1',l:'1.16'};var s=localStorage.getItem('unsentFontSize')||'m';if(S[s])document.documentElement.style.setProperty('--fs',S[s]);}catch(e){}})();
+</script>
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="雾中来信">
+<meta property="og:title" content="雾中来信 · by0628">
+<meta property="og:description" content="一些在深夜里写下的歌。不赶时间，慢慢听。">
+<meta property="og:url" content="https://by0628.github.io/Music/">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/by0628/Music@main/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/by0628/Music@main/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🌫️%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/APlayer.min.css">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/lxgwwenkai-regular.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-sc@5.2.5/400.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/zcool-xiaowei@5.2.5/400.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/ma-shan-zheng@5.2.5/400.css">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<div id="ambient"><div class="amb-layer" id="ambA"></div><div class="amb-layer" id="ambB"></div></div>
+<div class="grain"></div>
+<main>
+  <div id="setShield" aria-hidden="true"></div>
+  <div class="kicker">by0628 · songs<span id="kickDate"></span></div>
+  <h1>雾中来信</h1>
+  <p class="sub">一些在深夜里写下的歌。<br>不赶时间，慢慢听。</p>
+  <div id="ctlWrap">
+    <button id="setBtn" aria-haspopup="true" aria-expanded="false">版面設定<span id="setBtnSum"></span> ▾</button>
+    <div id="setPanel">
+      <div class="set-group">
+        <div class="set-lab">外观</div>
+        <div class="seg" id="themeSeg">
+          <button data-mode="auto">自动</button>
+          <button data-mode="light">浅色</button>
+          <button data-mode="dark">深色</button>
+        </div>
+      </div>
+      <div class="set-group">
+        <div class="set-lab">字体</div>
+        <div class="seg" id="fontSeg">
+          <button data-f="wenkai">文楷</button>
+          <button data-f="serif">宋体</button>
+          <button data-f="xiaowei">小薇</button>
+          <button data-f="brush">书法</button>
+          <button data-f="system">系统</button>
+        </div>
+      </div>
+      <div class="set-group">
+        <div class="set-lab">字号</div>
+        <div class="seg" id="sizeSeg">
+          <button data-s="s">小</button>
+          <button data-s="m">中</button>
+          <button data-s="l">大</button>
+        </div>
+      </div>
+      <div class="set-group">
+        <div class="set-lab">语言</div>
+        <div class="seg" id="langSeg">
+          <button data-l="simp">简体</button>
+          <button data-l="trad">繁体</button>
+        </div>
+      </div>
+      <div class="set-group">
+        <div class="set-lab">睡眠定时</div>
+        <div class="seg" id="sleepSeg">
+          <button data-min="0" class="on">关</button>
+          <button data-min="15">15 分</button>
+          <button data-min="30">30 分</button>
+          <button data-min="60">60 分</button>
+          <button data-min="end">播完这首</button>
+        </div>
+        <div class="sleep-state" id="sleepState">未开启</div>
+      </div>
+    </div>
+  </div>
+  <div class="rule"></div>
+  <div id="deck">
+    <div class="deck-search">
+      <span class="s-ic">♪</span>
+      <input id="deckQ" type="text" placeholder="搜一首库里没有的歌" autocomplete="off">
+      <button id="deckGo" type="button">搜索</button>
+    </div>
+    <button class="deck-more-btn" id="deckMoreBtn" type="button">快捷点歌 ▾</button>
+    <div id="deckMore">
+    <div class="deck-chips" id="deckChips">
+      <button type="button" data-singer="周杰伦">周杰伦</button>
+      <button type="button" data-singer="林俊杰">林俊杰</button>
+      <button type="button" data-singer="陈奕迅">陈奕迅</button>
+      <button type="button" data-singer="李荣浩">李荣浩</button>
+      <button type="button" data-singer="邓紫棋">邓紫棋</button>
+      <button type="button" id="chipRandom">随机一首</button>
+      <button type="button" id="chipDaily">今日推荐</button>
+    </div>
+    <div id="deckRecent"></div>
+    </div>
+    <div id="deckRes"></div>
+    <div id="deckMsg"></div>
+  </div>
+  <div id="player"></div>
+  <div id="toolRow">
+    <button id="dlBtn" type="button">下载这首</button>
+    <button id="cpBtn" type="button">复制歌名</button>
+    <span id="srcBadge">当前线路 · —</span>
+  </div>
+  <div id="toolMsg"></div>
+  <button id="dailyCard" type="button" disabled><span class="dk">今晚这首</span><span class="dv">—</span></button>
+  <button id="shareBtn" class="txt-btn" type="button">分 享 图</button>
+  <div id="skeleton" aria-hidden="true">
+    <div class="sk-row"></div><div class="sk-row"></div><div class="sk-row"></div>
+    <div class="sk-row"></div><div class="sk-row"></div><div class="sk-row"></div>
+    <div id="skeletonMsg"></div>
+  </div>
+  <div id="groups" style="display:none"></div>
+  <div id="lrcPanel"><div id="lrcScroll"></div></div>
+  <div id="lrcNote"></div>
+  <button id="stageBtn">全 屏 歌 词</button>
+  <div id="lrcTools" style="display:none">
+    <span class="lt-lab">歌词对齐</span>
+    <button id="lrcBack" type="button" title="歌词亮得太早时点：整体往后推">−0.5s</button>
+    <button id="lrcOffVal" type="button" title="点这里清零">0.0s</button>
+    <button id="lrcFwd" type="button" title="歌词亮得太晚时点：整体往前提">+0.5s</button>
+  </div>
+</main>
+<footer>写给每一个还没睡的人</footer>
+
+<div id="shareModal" aria-hidden="true">
+  <div class="sheet" id="shareSheet">
+    <img id="shareImg" alt="分享海报">
+    <div class="cap">长按保存 · 或下载图片</div>
+    <div class="row"><a id="shareDl" download="雾中来信-分享图.png" href="#">下载图片</a><button id="shareClose" type="button">关闭</button></div>
+  </div>
+</div>
+
+<div id="stage">
+  <div id="stageBg"></div>
+  <div id="stageHead">
+    <div id="stageTitle"></div>
+    <div class="seg" id="stageSeg">
+      <button data-style="classic" class="on">夜航</button>
+      <button data-style="drift">浮名</button>
+      <button data-style="single">独白</button>
+      <button data-style="tide">潮汐</button>
+      <button data-style="cinema">影院</button>
+      <button data-style="paper">纸上</button>
+    </div>
+    <button id="stageClose" title="关闭">✕</button>
+  </div>
+  <div id="stageBody">
+    <div id="stageScroll"></div>
+    <div class="dots" id="stageDots"><span></span><span></span><span></span></div>
+    <div id="stageNote">这首歌还没有歌词</div>
+  </div>
+  <div id="stageBar"><div id="stageBarFill"></div></div>
+</div>
+
+<script src="assets/APlayer.min.js"></script>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
